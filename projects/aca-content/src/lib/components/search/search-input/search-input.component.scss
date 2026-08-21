@@ -1,3 +1,5 @@
+@use '../../../ui/mat-selectors' as *;
+
 $search-width: 594px;
 $search-height: 32px;
 $search-background: var(--theme-search-background-color);
@@ -19,9 +21,15 @@ $top-margin: 12px;
   }
 
   .app-input-form-field {
-    .app-suffix-search-icon-wrapper.app-close-button {
-      height: 6px;
+    #{$mat-form-field-wrapper} {
+      background-color: transparent;
+    }
 
+    #{$mat-form-field-subscript} {
+      display: none;
+    }
+
+    .app-suffix-search-icon-wrapper.app-close-button {
       .app-close-icon {
         font-size: 18px;
         line-height: 28px;
@@ -34,12 +42,6 @@ $top-margin: 12px;
       &:disabled {
         color: var(--theme-text-color);
       }
-    }
-  }
-
-  &:focus-within {
-    label {
-      display: none;
     }
   }
 }
@@ -85,8 +87,7 @@ $top-margin: 12px;
   &-checkbox {
     padding: 3px 24px 3px 19px;
 
-    /* stylelint-disable-next-line selector-class-pattern */
-    .mat-checkbox-inner-container {
+    #{$mat-checkbox-background} {
       height: 18px;
       width: 18px;
     }
