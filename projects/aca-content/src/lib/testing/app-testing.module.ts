@@ -37,6 +37,9 @@ import {
 import { DiscoveryApiService, SearchQueryBuilderService } from '@alfresco/adf-content-services';
 import { RepositoryInfo, VersionInfo } from '@alfresco/js-api';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconTestingModule } from '@angular/material/icon/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from '../store/reducers/app.reducer';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -64,9 +67,12 @@ import { STORE_INITIAL_APP_DATA } from '@alfresco/aca-shared/store';
       }
     ),
     EffectsModule.forRoot([]),
-    PipeModule
+    PipeModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatIconTestingModule
   ],
-  exports: [RouterTestingModule, PipeModule, TranslateModule],
+  exports: [NoopAnimationsModule, RouterTestingModule, PipeModule, TranslateModule, MatDialogModule, MatSnackBarModule, MatIconTestingModule],
   providers: [
     SearchQueryBuilderService,
     { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
