@@ -29,6 +29,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { ViewNodeAction } from '@alfresco/aca-shared/store';
 import { AppTestingModule } from '../../../testing/app-testing.module';
+import { MatMenuItemHarness } from '@angular/material/menu/testing';
+import { MatButtonHarness } from '@angular/material/button/testing';
+import { getHarnessLoader } from '../../../testing/material-harness-utils';
 
 describe('ViewNodeComponent', () => {
   let component: ViewNodeComponent;
@@ -69,24 +72,24 @@ describe('ViewNodeComponent', () => {
     mockStore.dispatch.calls.reset();
   });
 
-  it('should render as a menu button', () => {
+  it('should render as a menu button', async () => {
     component.data = {
       menuButton: true
     };
 
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('.mat-menu-item')).not.toBe(null);
+    expect(await getHarnessLoader(fixture).getHarnessOrNull(MatMenuItemHarness)).not.toBe(null);
   });
 
-  it('should render as a icon button', () => {
+  it('should render as a icon button', async () => {
     component.data = {
       iconButton: true
     };
 
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('.mat-icon-button')).not.toBe(null);
+    expect(await getHarnessLoader(fixture).getHarnessOrNull(MatButtonHarness.with({ selector: '[mat-icon-button]' }))).not.toBe(null);
   });
 
   it('should call ViewNodeAction onClick event', () => {
