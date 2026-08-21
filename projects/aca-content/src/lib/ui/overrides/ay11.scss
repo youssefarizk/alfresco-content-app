@@ -1,23 +1,25 @@
 /* stylelint-disable selector-class-pattern */
+@import '../mat-selectors';
+
 @mixin ay11-theme() {
-  .mat-icon-button,
-  .mat-button,
-  .mat-checkbox,
-  .mat-raised-button {
+  #{$mat-icon-button},
+  #{$mat-button},
+  #{$mat-checkbox},
+  #{$mat-raised-button} {
     &:focus-visible {
       @include rounded-outline;
     }
 
-    .mat-ripple-element {
+    #{$mat-ripple-element} {
       display: none;
     }
 
-    &.cdk-keyboard-focused {
-      .mat-button-focus-overlay {
+    &#{$cdk-keyboard-focused} {
+      #{$mat-button-focus-overlay} {
         display: none;
       }
 
-      .mat-checkbox-ripple {
+      #{$mat-checkbox-ripple} {
         @include rounded-outline;
 
         height: 22px;
@@ -28,25 +30,25 @@
     }
   }
 
-  .adf-content-node-selector-content-list .adf-datatable-list .adf-datatable-selected.mat-icon > svg {
+  .adf-content-node-selector-content-list .adf-datatable-list .adf-datatable-selected#{$mat-icon} > svg {
     fill: var(--theme-blue-button-color);
   }
 
-  .mat-list-base .mat-list-option {
-    .mat-list-item-content {
+  #{$mat-list-base} #{$mat-list-option} {
+    #{$mat-list-item-content} {
       @include rounded-border(transparent);
     }
 
     &:focus-visible {
       background-color: white;
 
-      .mat-list-item-content {
+      #{$mat-list-item-content} {
         @include rounded-border;
       }
     }
   }
 
-  .adf-search-user-button.mat-button,
+  .adf-search-user-button#{$mat-button},
   .app-search-button {
     line-height: 36px;
 
@@ -59,9 +61,9 @@
     }
   }
 
-  .mat-menu-content {
-    .mat-menu-item {
-      .mat-menu-ripple {
+  #{$mat-menu-content} {
+    #{$mat-menu-item} {
+      #{$mat-menu-ripple} {
         display: none;
       }
 
@@ -73,7 +75,7 @@
         background-color: white;
       }
 
-      &.cdk-keyboard-focused:not([disabled]) {
+      &#{$cdk-keyboard-focused}:not([disabled]) {
         background-color: white;
       }
     }
@@ -83,56 +85,58 @@
     padding: 2px;
   }
 
-  .mat-option {
-    &.cdk-keyboard-focused {
-      .mat-option-ripple {
+  #{$mat-option} {
+    &#{$cdk-keyboard-focused} {
+      #{$mat-option-ripple} {
         @include rounded-outline;
       }
     }
   }
 
-  .mat-slide-toggle {
-    .mat-slide-toggle-thumb {
+  #{$mat-slide-toggle} {
+    #{$mat-slide-toggle-thumb} {
       width: 15px;
       height: 15px;
       transform: translate(20%, 50%);
       background-color: #484a4d;
     }
 
-    .mat-slide-toggle-bar {
+    #{$mat-slide-toggle-bar} {
       border-radius: 15px;
       height: 20px;
     }
 
-    .mat-slide-toggle-thumb-container {
+    #{$mat-slide-toggle-thumb-container} {
       top: -5px;
     }
 
-    .mat-slide-toggle-ripple {
+    #{$mat-slide-toggle-ripple} {
       display: none;
     }
 
-    &.cdk-keyboard-focused {
-      .mat-slide-toggle-bar {
+    &#{$cdk-keyboard-focused} {
+      #{$mat-slide-toggle-bar} {
         outline: 2px solid var(--theme-blue-button-color);
       }
     }
 
-    &.mat-primary.mat-checked:not(.mat-disabled) {
-      .mat-slide-toggle-bar {
-        background-color: var(--theme-blue-button-color);
-      }
+    &#{$mat-primary}#{$mat-slide-toggle-checked} {
+      .mdc-switch:enabled {
+        #{$mat-slide-toggle-bar} {
+          background-color: var(--theme-blue-button-color);
+        }
 
-      .mat-slide-toggle-thumb {
-        background-color: white;
+        #{$mat-slide-toggle-thumb} {
+          background-color: white;
+        }
       }
     }
   }
 
-  .mat-stroked-button,
-  .mat-flat-button {
-    &.cdk-keyboard-focused {
-      .mat-button-ripple.mat-ripple {
+  #{$mat-stroked-button},
+  #{$mat-flat-button} {
+    &#{$cdk-keyboard-focused} {
+      #{$mat-button-ripple}.mat-ripple {
         outline: 2px solid var(--theme-blue-button-color);
         inset: -4px;
       }
@@ -156,11 +160,11 @@
     color: var(--theme-datetimepicker-font-color);
   }
 
-  .mat-expansion-panel .mat-expansion-panel-header {
+  #{$mat-expansion-panel} #{$mat-expansion-panel-header} {
     box-sizing: border-box;
     border: 2px solid transparent;
 
-    .mat-button-base.mat-button {
+    #{$mat-button-base}#{$mat-button} {
       outline: none;
 
       @include rounded-border(transparent);
@@ -172,7 +176,7 @@
       }
     }
 
-    &.cdk-keyboard-focused:not([aria-disabled='true']) {
+    &#{$cdk-keyboard-focused}:not([aria-disabled='true']) {
       background-color: white;
 
       @include rounded-border;
@@ -182,8 +186,8 @@
   .adf-error-snackbar {
     background-color: #ba1b1b;
 
-    .mat-simple-snackbar,
-    .mat-simple-snackbar-action {
+    #{$mat-simple-snackbar},
+    #{$mat-simple-snackbar-action} {
       color: white;
     }
   }
@@ -191,13 +195,13 @@
   .adf-info-snackbar {
     background-color: var(--theme-blue-button-color);
 
-    .mat-simple-snackbar,
-    .mat-simple-snackbar-action {
+    #{$mat-simple-snackbar},
+    #{$mat-simple-snackbar-action} {
       color: white;
     }
   }
 
-  .mat-button-base {
+  #{$mat-button-base} {
     &.adf-filter-button {
       margin-left: -2px;
     }
@@ -207,15 +211,15 @@
     &__perpage-block,
     &__actualinfo-block {
       /* stylelint-disable-next-line no-descending-specificity */
-      .mat-icon-button {
+      #{$mat-icon-button} {
         left: 3px;
 
         &:focus-visible {
           outline: none;
         }
 
-        &.cdk-keyboard-focused {
-          .mat-icon {
+        &#{$cdk-keyboard-focused} {
+          #{$mat-icon} {
             @include rounded-outline;
           }
         }

@@ -1,0 +1,167 @@
+/* stylelint-disable selector-class-pattern */
+
+// Angular Material 15 (MDC) selector names.
+// Material 15 replaced the internal DOM of most components, so the pre-MDC `.mat-*`
+// class names no longer exist. This partial is the single place where the MDC
+// internals are spelled out: styles should reference these variables through
+// interpolation (`#{$mat-form-field} { ... }`) instead of hard-coding class names.
+// Usage (plain SCSS variables, works with both `@use` and `@import`):
+//   @use '../../ui/mat-selectors' as *;   // or @import '../../ui/mat-selectors';
+//   #{$mat-tab-label}#{$mat-tab-label-active} { ... }
+
+// Buttons
+$mat-button: '.mat-mdc-button';
+$mat-button-base: '.mat-mdc-button-base';
+$mat-icon-button: '.mat-mdc-icon-button';
+$mat-raised-button: '.mat-mdc-raised-button';
+$mat-stroked-button: '.mat-mdc-outlined-button';
+$mat-flat-button: '.mat-mdc-unelevated-button';
+$mat-fab: '.mat-mdc-fab';
+$mat-mini-fab: '.mat-mdc-mini-fab';
+
+// The pre-MDC `.mat-button-focus-overlay` is now the persistent ripple layer.
+$mat-button-focus-overlay: '.mat-mdc-button-persistent-ripple';
+$mat-button-ripple: '.mat-mdc-button-ripple';
+$mat-focus-indicator: '.mat-mdc-focus-indicator';
+$mat-ripple-element: '.mat-ripple-element';
+
+// Checkbox
+$mat-checkbox: '.mat-mdc-checkbox';
+
+// MDC renders the checkbox label as a bare `<label>` inside `.mdc-form-field`.
+$mat-checkbox-label: '.mat-mdc-checkbox label';
+$mat-checkbox-ripple: '.mat-mdc-checkbox-ripple';
+$mat-checkbox-background: '.mdc-checkbox__background';
+$mat-checkbox-native-control: '.mdc-checkbox__native-control';
+
+// Radio
+$mat-radio-button: '.mat-mdc-radio-button';
+$mat-radio-checked: '.mat-mdc-radio-checked';
+
+// Form field / input / select
+$mat-form-field: '.mat-mdc-form-field';
+$mat-form-field-wrapper: '.mat-mdc-text-field-wrapper';
+$mat-form-field-flex: '.mat-mdc-form-field-flex';
+
+// The pre-MDC label wrapper is the infix, which now hosts the floating label.
+$mat-form-field-label-wrapper: '.mat-mdc-form-field-infix';
+$mat-form-field-infix: '.mat-mdc-form-field-infix';
+$mat-form-field-label: '.mat-mdc-floating-label';
+$mat-floating-label: '.mdc-floating-label';
+$mat-form-field-underline: '.mdc-line-ripple';
+$mat-form-field-subscript: '.mat-mdc-form-field-subscript-wrapper';
+$mat-form-field-hint: '.mat-mdc-form-field-hint';
+$mat-form-field-error: '.mat-mdc-form-field-error';
+$mat-input-element: '.mat-mdc-input-element';
+$mat-select: '.mat-mdc-select';
+$mat-select-arrow: '.mat-mdc-select-arrow';
+$mat-select-panel: '.mat-mdc-select-panel';
+$mat-select-value: '.mat-mdc-select-value';
+$mat-select-trigger: '.mat-mdc-select-trigger';
+
+// Options / autocomplete
+$mat-option: '.mat-mdc-option';
+$mat-option-active: '.mat-mdc-option-active';
+$mat-option-ripple: '.mat-mdc-option-ripple';
+$mat-option-text: '.mdc-list-item__primary-text';
+$mat-autocomplete-panel: '.mat-mdc-autocomplete-panel';
+
+// Menu
+$mat-menu-panel: '.mat-mdc-menu-panel';
+$mat-menu-content: '.mat-mdc-menu-content';
+$mat-menu-item: '.mat-mdc-menu-item';
+$mat-menu-item-text: '.mat-mdc-menu-item-text';
+$mat-menu-ripple: '.mat-mdc-menu-ripple';
+
+// Tabs
+$mat-tab-group: '.mat-mdc-tab-group';
+$mat-tab-header: '.mat-mdc-tab-header';
+$mat-tab-list: '.mat-mdc-tab-list';
+$mat-tab-labels: '.mat-mdc-tab-labels';
+$mat-tab-label: '.mat-mdc-tab';
+$mat-tab-label-active: '.mdc-tab--active';
+$mat-tab-label-content: '.mdc-tab__content';
+$mat-tab-label-text: '.mdc-tab__text-label';
+$mat-tab-body-content: '.mat-mdc-tab-body-content';
+
+// Lists
+$mat-list: '.mat-mdc-list';
+$mat-list-base: '.mat-mdc-list-base';
+$mat-list-item: '.mat-mdc-list-item';
+$mat-list-option: '.mat-mdc-list-option';
+$mat-list-item-content: '.mdc-list-item__content';
+$mat-list-item-line: '.mat-mdc-list-item-line';
+$mat-list-item-title: '.mat-mdc-list-item-title';
+
+// Slide toggle (MDC switch)
+$mat-slide-toggle: '.mat-mdc-slide-toggle';
+$mat-slide-toggle-checked: '.mat-mdc-slide-toggle-checked';
+$mat-slide-toggle-thumb: '.mdc-switch__handle';
+$mat-slide-toggle-thumb-container: '.mdc-switch__handle-track';
+$mat-slide-toggle-bar: '.mdc-switch__track';
+$mat-slide-toggle-ripple: '.mat-mdc-slide-toggle-ripple';
+$mat-slide-toggle-disabled: '.mdc-switch--disabled';
+
+// Snack bar
+$mat-snackbar-container: '.mat-mdc-snack-bar-container';
+$mat-simple-snackbar: '.mat-mdc-simple-snack-bar';
+$mat-simple-snackbar-action: '.mat-mdc-snack-bar-action';
+$mat-snackbar-label: '.mat-mdc-snack-bar-label';
+
+// Dialog
+$mat-dialog-container: '.mat-mdc-dialog-container';
+$mat-dialog-surface: '.mat-mdc-dialog-surface';
+$mat-dialog-title: '.mat-mdc-dialog-title';
+$mat-dialog-content: '.mat-mdc-dialog-content';
+$mat-dialog-actions: '.mat-mdc-dialog-actions';
+
+// Chips
+$mat-chip: '.mat-mdc-chip';
+$mat-chip-list: '.mat-mdc-chip-set';
+$mat-chip-remove: '.mat-mdc-chip-remove';
+$mat-chip-label: '.mat-mdc-chip-action-label';
+
+// Table
+$mat-table: '.mat-mdc-table';
+$mat-row: '.mat-mdc-row';
+$mat-cell: '.mat-mdc-cell';
+$mat-header-row: '.mat-mdc-header-row';
+$mat-header-cell: '.mat-mdc-header-cell';
+
+// Card / paginator / progress bar / tooltip
+$mat-card: '.mat-mdc-card';
+$mat-card-content: '.mat-mdc-card-content';
+$mat-paginator: '.mat-mdc-paginator';
+$mat-progress-bar: '.mat-mdc-progress-bar';
+$mat-tooltip: '.mat-mdc-tooltip';
+
+// Components that were NOT migrated to MDC in v15 - class names are unchanged.
+// They are listed here so downstream packages have a single reference point.
+$mat-toolbar: '.mat-toolbar';
+$mat-toolbar-single-row: '.mat-toolbar-single-row';
+$mat-toolbar-multiple-row: '.mat-toolbar-multiple-row';
+$mat-icon: '.mat-icon';
+$mat-accent: '.mat-accent';
+$mat-primary: '.mat-primary';
+$mat-warn: '.mat-warn';
+$mat-accordion: '.mat-accordion';
+$mat-expansion-panel: '.mat-expansion-panel';
+$mat-expansion-panel-header: '.mat-expansion-panel-header';
+$mat-expansion-panel-body: '.mat-expansion-panel-body';
+$mat-datepicker-content: '.mat-datepicker-content';
+$mat-tree: '.mat-tree';
+$mat-tree-node: '.mat-tree-node';
+$mat-sidenav: '.mat-sidenav';
+$mat-drawer: '.mat-drawer';
+$mat-badge: '.mat-badge';
+$mat-divider: '.mat-divider';
+$mat-progress-spinner: '.mat-progress-spinner';
+$mat-button-toggle: '.mat-button-toggle';
+$mat-sort-header: '.mat-sort-header';
+$mat-pseudo-checkbox: '.mat-pseudo-checkbox';
+$mat-pseudo-checkbox-checked: '.mat-pseudo-checkbox-checked';
+
+// CDK state classes (unchanged, kept here for convenience).
+$cdk-keyboard-focused: '.cdk-keyboard-focused';
+$cdk-focused: '.cdk-focused';
+$cdk-overlay-pane: '.cdk-overlay-pane';

@@ -1,6 +1,7 @@
 /* stylelint-disable selector-class-pattern */
 @use '@angular/material' as mat;
 @import '@alfresco/adf-core/theming';
+@import 'mat-selectors';
 @import 'custom-theme';
 @import 'variables/variables';
 @include custom-theme($custom-theme);
@@ -13,21 +14,21 @@ mat-toolbar {
   color: var(--theme-secondary-text);
 }
 
-.mat-tab-list {
-  .mat-tab-labels {
-    .mat-tab-label {
-      &.mat-tab-label-active {
+#{$mat-tab-list} {
+  #{$mat-tab-labels} {
+    #{$mat-tab-label} {
+      &#{$mat-tab-label-active} {
         color: #212121;
       }
     }
   }
 }
 
-.mat-form-field-label-wrapper .mat-form-field-label,
-.mat-tab-list .mat-tab-labels .mat-tab-label,
-.mat-checkbox-label,
-mat-toolbar.mat-toolbar.mat-toolbar-multiple-row,
-mat-toolbar.mat-toolbar.mat-toolbar-single-row {
+#{$mat-form-field-label-wrapper} #{$mat-form-field-label},
+#{$mat-tab-list} #{$mat-tab-labels} #{$mat-tab-label},
+#{$mat-checkbox-label},
+mat-toolbar#{$mat-toolbar}#{$mat-toolbar-multiple-row},
+mat-toolbar#{$mat-toolbar}#{$mat-toolbar-single-row} {
   color: var(--theme-secondary-text);
   opacity: 1;
 }
@@ -50,7 +51,7 @@ mat-toolbar.mat-toolbar.mat-toolbar-single-row {
 }
 
 .adf-property-field {
-  .adf-textitem-edit-icon.mat-icon {
+  .adf-textitem-edit-icon#{$mat-icon} {
     color: var(--theme-secondary-text);
   }
 }
