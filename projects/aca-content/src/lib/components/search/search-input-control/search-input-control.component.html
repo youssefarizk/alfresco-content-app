@@ -22,13 +22,6 @@
       [placeholder]="'SEARCH.INPUT.PLACEHOLDER' | translate"
       autocomplete="off"
     />
-    <mat-icon
-      matIconSuffix
-      *ngIf="searchTerm.length"
-      (click)="clear()"
-      class="app-search-input-control-icon app-clear-icon"
-    >
-      clear
-    </mat-icon>
+    <mat-icon matIconSuffix *ngIf="searchTerm.length" (click)="clear()" class="app-search-input-control-icon app-clear-icon">clear</mat-icon>
   </mat-form-field>
 </div>
