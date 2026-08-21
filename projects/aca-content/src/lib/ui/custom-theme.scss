@@ -1,4 +1,5 @@
 /* stylelint-disable value-keyword-case */
+@use 'sass:map';
 @use '@angular/material' as mat;
 @import './overrides/adf-style-fixes.theme';
 @import './overrides/adf-pagination.theme';
@@ -9,7 +10,33 @@
 $mat-primary-palette: mat.define-palette($aca-primary-blue, A100);
 $mat-accent-palette: mat.define-palette($aca-accent-green, A200);
 $mat-warn-palette: mat.define-palette($aca-warn, A100);
-$app-typography: mat.define-typography-config(
+
+// Material 15 typography levels. The 2014 level names were renamed in v15:
+// display-4 -> headline-1, display-3 -> headline-2, display-2 -> headline-3,
+// display-1 -> headline-4, headline -> headline-5, title -> headline-6,
+// subheading-2 -> subtitle-1, body-2 -> subtitle-2, subheading-1 -> body-1,
+// body-1 -> body-2. The `input` level no longer exists, MDC form fields derive
+// their typography from `body-1`.
+$app-typography-mdc: mat.define-typography-config(
+  $font-family: 'Open Sans',
+  $headline-1: mat.define-typography-level(112px, 112px, 300),
+  $headline-2: mat.define-typography-level(56px, 56px, 400),
+  $headline-3: mat.define-typography-level(45px, 48px, 400),
+  $headline-4: mat.define-typography-level(34px, 40px, 400),
+  $headline-5: mat.define-typography-level(24px, 32px, 400),
+  $headline-6: mat.define-typography-level(20px, 32px, 500),
+  $subtitle-1: mat.define-typography-level(16px, 28px, 400),
+  $subtitle-2: mat.define-typography-level(14px, 24px, 500),
+  $body-1: mat.define-typography-level(15px, 24px, 400),
+  $body-2: mat.define-typography-level(14px, 20px, 400),
+  $caption: mat.define-typography-level(12px, 20px, 400),
+  $button: mat.define-typography-level(14px, 14px, 500)
+);
+
+// `@alfresco/adf-core` 6.7.1 theming still reads the 2014 level names off the
+// theme (`mat.font-size($typography, display-1)` and friends), so the config
+// exposes both naming schemes. Material only looks at the v15 names.
+$app-typography-legacy: mat.define-legacy-typography-config(
   $font-family: 'Open Sans',
   $display-4: mat.define-typography-level(112px, 112px, 300),
   $display-3: mat.define-typography-level(56px, 56px, 400),
@@ -26,8 +53,12 @@ $app-typography: mat.define-typography-config(
   // Line-height must be unit-less fraction of the font-size.
   $input: mat.define-typography-level(inherit, 1.25, 400)
 );
+$app-typography: map.merge($app-typography-legacy, $app-typography-mdc);
 
-@include mat.core($app-typography);
+// In v15 `mat.core()` no longer accepts a typography config, the global
+// typography classes come from `mat.typography-hierarchy`.
+@include mat.core;
+@include mat.typography-hierarchy($app-typography);
 
 $custom-theme: mat.define-light-theme(
   (
@@ -36,7 +67,8 @@ $custom-theme: mat.define-light-theme(
       accent: $mat-accent-palette,
       warn: $mat-warn-palette
     ),
-    typography: $app-typography
+    typography: $app-typography,
+    density: 0
   )
 );
 
