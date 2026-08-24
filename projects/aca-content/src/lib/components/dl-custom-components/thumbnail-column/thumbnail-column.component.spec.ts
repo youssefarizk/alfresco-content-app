@@ -87,6 +87,21 @@ describe('ThumbnailColumnComponent', () => {
     expect(component.tooltip).toContain('John');
   });
 
+  it('should set thumbnail url and tooltip when context is set through input binding', () => {
+    const context = getContext();
+
+    fixture.componentRef.setInput('context', context);
+    fixture.detectChanges();
+
+    expect(context.data.getValue).toHaveBeenCalledWith(context.row, context.col);
+    expect(component.thumbnailUrl).toBe('thumb-url');
+    expect(component.tooltip).toContain('APP.LOCKED_BY');
+    expect(component.tooltip).toContain('John');
+
+    const img = fixture.debugElement.query(By.css('img'));
+    expect(img.nativeElement.getAttribute('src')).toBe('thumb-url');
+  });
+
   it('should set thumbnail url and tooltip to null when context changes to falsy value', () => {
     component.ngOnChanges({ context: new SimpleChange(getContext(), null, false) });
 
